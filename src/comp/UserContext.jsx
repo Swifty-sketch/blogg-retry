@@ -5,7 +5,7 @@ export const UserContext = createContext();
 
 // Skapa en komponent som innehåller state du vill dela
 export const UserProvider = (props) => {
-  const [userName, setUserName] = useState("John Doe");
+  const [userName, setUserName] = useState("Marsel");
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
