@@ -10,9 +10,8 @@ const Navbar = () => {
     <ul className = "navbar">
       <li id = "Name"><h1>Blogg.se</h1></li>
       <li><p className = "navClick">Logged in: {userName}</p></li>
-      <li><Link className = "navClick" to="/about">About</Link></li>
-      <li><Link className = "navClick" to="/">TODO</Link></li>
-      <li><Link className = "navClick" to="/home">Home</Link></li>
+      <li><Link className = "navClick" to="/Explore">Explore</Link></li>
+      <li><Link className = "navClick" to="/">Home</Link></li>
     </ul>  
   )
 }

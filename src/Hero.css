@@ -1,0 +1,78 @@
+.heroSection {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+  
+  .heroContent {
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .blogContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .blogPost {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blogPost h3 {
+    margin-bottom: 5px;
+  }
+  
+  .blogPost p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .randomTextContainer {
+    flex: 0.5;
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .randomTextContainer p {
+    margin: 0;
+  }
+  
+  /* Add styles for filter buttons */
+.filterSection {
+  margin-bottom: 20px;
+}
+
+.filterButton {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filterButton:hover {
+  background-color: #ddd;
+}
+
+.filterButton.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.filterButton.active:hover {
+  background-color: #0056b3;
+}
