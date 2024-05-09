@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 
 // Styling
 import './index.css';
-import './Hero.css';
 import './MakeBlogg.css';
 
 import App from './App';

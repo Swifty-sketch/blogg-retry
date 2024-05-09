@@ -41,3 +41,6 @@
     cursor: pointer;
   }
   
+  .bloggTextInput{
+    width: 600px;
+  }

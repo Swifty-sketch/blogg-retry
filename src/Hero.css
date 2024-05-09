@@ -80,3 +80,7 @@
 .filterButton.active:hover {
   background-color: #0056b3;
 }
+
+.removeButton{
+  display: inline-block;
+}

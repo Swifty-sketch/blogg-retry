@@ -35,6 +35,7 @@ const MakeBlogg = ({ onAddBlog }) => {
         <div className="form-input">
           <label>Blog Text:</label>
           <textarea
+          className="bloggTextInput"
             value={blogText}
             onChange={(e) => setBlogText(e.target.value)}
           ></textarea>

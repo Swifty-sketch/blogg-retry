@@ -44,7 +44,7 @@ function App() {
             <Hero blogPosts={blogPosts} removeBlog={removeBlog} />
           </Route>
           <Route path="/Explore">
-            <Explore />
+          <Explore blogPosts={blogPosts} removeBlog={removeBlog}/>
           </Route>
           <Route path="/MakeBlogg">
             <MakeBlogg

@@ -1,16 +1,20 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../comp/UserContext";
 
+import { MdDeleteOutline } from "react-icons/md";
+
+import '../Hero.css';
+
 const Hero = ({ blogPosts, removeBlog }) => {
-  const [sortBy, setSortBy] = useState("newest"); // State to track sorting criteria
+  const [sortBy, setSortBy] = useState("newest");
   const { userName } = useContext(UserContext);
 
   // Function to sort blog posts based on sorting criteria and show max 3 posts
   const sortedAndLimitedBlogPosts = () => {
     if (sortBy === "newest") {
-      return blogPosts.slice().sort((a, b) => b.id - a.id).slice(0, 3); // Sort by newest and show max 3 posts
+      return blogPosts.slice().sort((a, b) => b.id - a.id).slice(0, 3);
     } else {
-      return blogPosts.slice().sort((a, b) => a.id - b.id).slice(0, 3); // Sort by oldest and show max 3 posts
+      return blogPosts.slice().sort((a, b) => a.id - b.id).slice(0, 3);
     }
   };
 
@@ -35,14 +39,19 @@ const Hero = ({ blogPosts, removeBlog }) => {
           </div>
           {sortedAndLimitedBlogPosts().map((post) => (
             <div className="blogPost" key={post.id}>
-              {post.author === userName && ( // Check if the author matches the current user
-                <button onClick={() => removeBlog(post.id)} className="removeButton">
-                  Remove
-                </button>
+              <h2>
+                {post.title}
+                {post.author === userName && (
+                  <MdDeleteOutline onClick={() => removeBlog(post.id)} className="removeButton">
+                    Remove
+                  </MdDeleteOutline>
               )}
-              <h2>{post.title}</h2>
-              <h3>{post.blogText}</h3>
-              <p>Author: {post.author}</p>
+              </h2>
+              
+              <div className="blogContent">
+                <h3>{post.blogText}</h3>
+                <p>Author: {post.author}</p>
+              </div>
             </div>
           ))}
         </div>
