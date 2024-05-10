@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "blogText": "Suppose I'm looking at a sentfrom Igbo.Suppose I'm looking at a sentfrom Igbo.Suppose I'm looking at a sentfrom Igbo.Suppose I'm looking at a sentfrom Igbo.",
+      "author": "John Doe",
+      "title": "Title 1"
+    },
+    {
+      "id": 2,
+      "blogText": "This is the second blog post.",
+      "author": "Jane Smith",
+      "title": "How to make pasta"
+    },
+    {
+      "id": 3,
+      "blogText": "This is the third blog post.",
+      "author": "Alice Johnson",
+      "title": "Lottery winner loses money in 1 week"
+    }
+  ]
+  

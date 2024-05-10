@@ -3,19 +3,14 @@ import Navbar from "./comp/Navbar";
 import Hero from "./comp/Hero";
 import Explore from "./pages/Explore";
 import MakeBlogg from "./pages/MakeBlogg";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 import { useContext } from "react";
 import { UserContext } from "./comp/UserContext";
+import blogData from "./blogData.json"; // Importing the JSON file
 
 function App() {
   const [blogPosts, setBlogPosts] = useState(
-    JSON.parse(localStorage.getItem("blogPosts")) || [
-      { id: 1, blogText: "Suppose I'm looking at a sentfrom Igbo.Suppose I'm looking at a sentfrom Igbo.Suppose I'm looking at a sentfrom Igbo.Suppose I'm looking at a sentfrom Igbo.", author: "John Doe", title: "Title 1" },
-      { id: 2, blogText: "This is the second blog post.", author: "Jane Smith", title: "How to make pasta" },
-      { id: 3, blogText: "This is the third blog post.", author: "Alice Johnson", title: "Lottery winner loses money in 1 week" }
-    ]
+    JSON.parse(localStorage.getItem("blogPosts")) || blogData // Using imported data
   );
 
   const { isLoggedIn } = useContext(UserContext);
@@ -24,12 +19,26 @@ function App() {
     localStorage.setItem("blogPosts", JSON.stringify(blogPosts));
   }, [blogPosts]);
 
-  const addNewBlog = (newBlog) => {
-    setBlogPosts([...blogPosts, { id: blogPosts.length + 1, ...newBlog }]);
+  const addComment = (postId, comment) => {
+    setBlogPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post.id === postId ? { ...post, comments: [...(post.comments || []), comment] } : post
+      )
+    );
+  };
+
+  const removeComment = (postId, commentIndex) => {
+    setBlogPosts((prevPosts) =>
+      prevPosts.map((post) =>
+        post.id === postId
+          ? { ...post, comments: post.comments.filter((_, index) => index !== commentIndex) }
+          : post
+      )
+    );
   };
 
   const removeBlog = (id) => {
-    const updatedBlogs = blogPosts.filter(blog => blog.id !== id);
+    const updatedBlogs = blogPosts.filter((blog) => blog.id !== id);
     setBlogPosts(updatedBlogs);
   };
 
@@ -41,10 +50,15 @@ function App() {
           {/* Home */}
           <Route exact path="/">
             {/* Props */}
-            <Hero blogPosts={blogPosts} removeBlog={removeBlog} />
+            <Hero blogPosts={blogPosts} removeBlog={removeBlog} addComment={addComment} />
           </Route>
           <Route path="/Explore">
-          <Explore blogPosts={blogPosts} removeBlog={removeBlog}/>
+            <Explore
+              blogPosts={blogPosts}
+              removeBlog={removeBlog}
+              addComment={addComment}
+              removeComment={removeComment}
+            />
           </Route>
           <Route path="/MakeBlogg">
             <MakeBlogg

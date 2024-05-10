@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url( 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,6 +7,10 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+}
+
+textarea {
+    resize: none;
 }
 
 .navbar {
@@ -80,11 +84,9 @@ li {
     font-size: 15px;
     font-family: inherit;
 }
-
 .btn:focus {
     outline: none;
 }
-
 .btn:active {
     transform: scale(0.98);
 }
@@ -101,32 +103,29 @@ li {
     cursor: pointer;
 }
 
-.cssBoxFix{
+.cssBoxFix {
     display: flex;
     align-items: center;
 }
 
-.icons{
+.icons {
     margin-left: 10px;
 }
 
 .task.pinned {
     border-left: 5px solid rgb(238, 238, 20);
 }
-  
+
 .task.reminder {
     border-left: 5px solid rgb(238, 238, 20);
 }
-  
+
 .task.pinned.reminder {
     border-left: 5px solid rgb(238, 238, 20);
 }
-  
 .task:not(.pinned).reminder {
     border-left: 5px solid green;
 }
-  
-
 
 .task h3 {
     display: flex;
@@ -134,7 +133,8 @@ li {
     justify-content: space-between;
 }
 
-.todoText, .classIcons{
+.classIcons,
+.todoText {
     display: inline-block;
 }
 
