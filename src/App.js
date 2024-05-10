@@ -12,7 +12,6 @@ function App() {
   const [blogPosts, setBlogPosts] = useState(
     JSON.parse(localStorage.getItem("blogPosts")) || blogData // Using imported data
   );
-
   const { isLoggedIn } = useContext(UserContext);
 
   useEffect(() => {
@@ -27,12 +26,10 @@ function App() {
     );
   };
 
-  const removeComment = (postId, commentIndex) => {
+  const editBlog = (postId, newText) => {
     setBlogPosts((prevPosts) =>
       prevPosts.map((post) =>
-        post.id === postId
-          ? { ...post, comments: post.comments.filter((_, index) => index !== commentIndex) }
-          : post
+        post.id === postId ? { ...post, blogText: newText } : post
       )
     );
   };
@@ -50,14 +47,19 @@ function App() {
           {/* Home */}
           <Route exact path="/">
             {/* Props */}
-            <Hero blogPosts={blogPosts} removeBlog={removeBlog} addComment={addComment} />
+            <Hero
+              blogPosts={blogPosts}
+              removeBlog={removeBlog}
+              addComment={addComment}
+              editBlog={editBlog} // Pass editBlog function as prop
+            />
           </Route>
           <Route path="/Explore">
             <Explore
               blogPosts={blogPosts}
               removeBlog={removeBlog}
               addComment={addComment}
-              removeComment={removeComment}
+              editBlog={editBlog} // Pass editBlog function as prop
             />
           </Route>
           <Route path="/MakeBlogg">
